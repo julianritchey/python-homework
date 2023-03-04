@@ -1,2 +1,2 @@
 # python-homework
-Module 2 challenge (PyBank and PyRamen)
+Module 2 challenge: PyBank and PyRamen
