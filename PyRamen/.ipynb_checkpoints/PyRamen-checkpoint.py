@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-"""PyRamen Homework Starter."""
+"""PyRamen Homework."""
 
 # @TODO: Import libraries
 import csv
@@ -14,17 +14,17 @@ menu = []
 sales = []
 
 # @TODO: Read in the menu data into the menu list
-with open(menu_filepath, 'r') as file:
-    csvreader = csv.reader(file, delimiter=',')
-    header = next(csvreader)
-    for row in csvreader:
+with open(menu_filepath, newline = '') as file:
+    menu_csv = csv.reader(file, delimiter=',')
+    header = next(menu_csv)
+    for row in menu_csv:
         menu.append(row)
 
 # @TODO: Read in the sales data into the sales list
-with open(sales_filepath, 'r') as file:
-    csvreader = csv.reader(file, delimiter=',')
-    header = next(csvreader)
-    for row in csvreader:
+with open(sales_filepath, newline = '') as file:
+    sales_csv = csv.reader(file, delimiter=',')
+    header = next(sales_csv)
+    for row in sales_csv:
         sales.append(row)
 
 # @TODO: Initialize dict object to hold our key-value pairs of items and metrics
@@ -91,4 +91,18 @@ report_filepath = Path('report.txt')
 with open(report_filepath, 'w') as file:
     for key, value in report.items():
         file.write(key + " " + str(value))
+        file.write("\n")
+        
+"""
+The following is not a part of the challenge.
+I've opted to create a markdown file for display in my Github repository.
+"""
+        
+# Additional output for markdown file for Github:
+report_filepath = Path('README.md')
+with open(report_filepath, 'w') as file:
+    file.write("# Sales Report")
+    file.write("\n")
+    for key, value in report.items():
+        file.write(key + " " + str(value) + "  ")
         file.write("\n")
